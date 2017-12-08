@@ -1,24 +1,8 @@
 # MeFit API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 依赖项目
 
-Things you may want to cover:
+除了 Rails 框架及其默认组件，MeFit 系统还依赖于以下开源项目：
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- bbatsov/rubocop : Ruby 代码风格检查器
+  - https://github.com/bbatsov/rubocop
