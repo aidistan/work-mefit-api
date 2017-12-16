@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+aidi:
+  mobile: 18811229458
+  password_digest: <%= BCrypt::Password.create('Pa55word') %>
+  nickname: Aidi Stan
+  weixin_id: aidistan
+  gender: 1
+  birthday: 1991-08-03

@@ -15,7 +15,11 @@ Metrics/PerceivedComplexity:
 
 Style/Documentation:
   Enabled: false
+Style/EmptyMethod:
+  Enabled: false
 Style/GuardClause:
+  Enabled: false
+Style/LambdaCall:
   Enabled: false
 
 Layout/AlignHash:
