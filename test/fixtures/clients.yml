@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+web:
+  uuid: mefit-web
+  secret: mefit-web
+  redirect_uri: http://example.com
+  name: MeFit Web
+  codename: mefit-web

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216081932) do
+ActiveRecord::Schema.define(version: 20171216124739) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "uuid"
+    t.string "secret"
+    t.string "redirect_uri"
+    t.string "name"
+    t.string "codename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["codename"], name: "index_clients_on_codename", unique: true
+    t.index ["uuid"], name: "index_clients_on_uuid", unique: true
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
