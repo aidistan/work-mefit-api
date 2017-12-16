@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  has_many :tokens
+
   validates :codename, presence: true, uniqueness: true, length: { maximum: 64 }
   validates :redirect_uri, presence: true, uri: { query: false }, allow_nil: true
 

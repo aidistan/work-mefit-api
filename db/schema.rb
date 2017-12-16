@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216124739) do
+ActiveRecord::Schema.define(version: 20171216130905) do
 
   create_table "clients", force: :cascade do |t|
     t.string "uuid"
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 20171216124739) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_roles_on_name", unique: true
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "uuid"
+    t.integer "kind", default: 0
+    t.integer "expires_in"
+    t.datetime "expires_at"
+    t.string "last_used_ip"
+    t.datetime "last_used_at"
+    t.integer "user_id"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_tokens_on_client_id"
+    t.index ["user_id"], name: "index_tokens_on_user_id"
+    t.index ["uuid"], name: "index_tokens_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade do |t|
