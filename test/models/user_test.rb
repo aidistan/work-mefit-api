@@ -30,4 +30,10 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.valid?
     assert_includes user.errors.details[:mobile], error: :blank
   end
+
+  test 'could have roles' do
+    assert @user.has_role? :user
+    assert @user.has_any_role? :user
+    assert @user.has_all_roles? :user
+  end
 end

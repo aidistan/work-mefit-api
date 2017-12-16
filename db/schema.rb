@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216070323) do
+ActiveRecord::Schema.define(version: 20171216081932) do
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_roles_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "mobile"
-    t.string "password_digest"
     t.string "nickname"
+    t.string "password_digest"
     t.string "weixin_id"
     t.integer "gender", default: 2
     t.date "birthday"
@@ -24,6 +32,11 @@ ActiveRecord::Schema.define(version: 20171216070323) do
     t.index ["mobile"], name: "index_users_on_mobile", unique: true
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
     t.index ["weixin_id"], name: "index_users_on_weixin_id", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
   end
 
 end
