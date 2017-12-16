@@ -1,0 +1,18 @@
+<% provide :title, 'Authorize - MeFit' %>
+
+<p><%= "Login #{@client.name} with your MeFit account" %></p>
+
+<%= form_for :credentials, url: login_oauth_authorize_path, authenticity_token: false do |f| %>
+  <% if @flash %><p><%= @flash %></p><% end %>
+
+  <% [:response_type, :client_id, :redirect_uri, :state].each do |param| %>
+    <%= hidden_field_tag param, params[param] %>
+  <% end %>
+
+  <%= f.label :mobile, 'Mobile' %>
+  <%= f.text_field :mobile, required: true %>
+  <%= f.label :password, 'Password' %>
+  <%= f.password_field :password, required: true %>
+
+  <%= f.submit 'Login' %>
+<% end %>
