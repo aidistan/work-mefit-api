@@ -3,7 +3,15 @@
 aidi:
   mobile: 18811229458
   password_digest: <%= BCrypt::Password.create('Pa55word') %>
-  nickname: Aidi Stan
-  weixin_id: aidistan
+  nickname: Aidi
+  weixin_id: aidi
   gender: 1
   birthday: 1991-08-03
+
+sunny:
+  mobile: 17610258383
+  password_digest: <%= BCrypt::Password.create('Pa55word') %>
+  nickname: Sunny
+  weixin_id: sunny
+  gender: 0
+  birthday: 1991-10-25

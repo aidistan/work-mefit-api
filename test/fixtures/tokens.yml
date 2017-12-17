@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-access:
-  uuid: access
+aidi:
+  uuid: aidi-access
   kind: access
   expires_in: 60
   expires_at: <%= Time.now + 60 %>
   user: aidi
+  client: web
+
+sunny:
+  uuid: sunny-access
+  kind: access
+  expires_in: 60
+  expires_at: <%= Time.now + 60 %>
+  user: sunny
   client: web

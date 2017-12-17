@@ -6,7 +6,7 @@ class Login::OauthControllerTest < ActionDispatch::IntegrationTest
     @client = clients(:web)
   end
 
-  test 'should render authorize with right params' do
+  test 'should authorize with right params' do
     get login_oauth_authorize_url(
       response_type: 'code',
       client_id: @client.uuid,
@@ -15,7 +15,7 @@ class Login::OauthControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should reject authorize with wrong params' do
+  test 'should not authorize with wrong params' do
     get login_oauth_authorize_url(client_id: @client.uuid, redirect_uri: @client.redirect_uri)
     assert_response :bad_request
     get login_oauth_authorize_url(response_type: 'code', client_id: @client.uuid)
@@ -54,7 +54,7 @@ class Login::OauthControllerTest < ActionDispatch::IntegrationTest
     assert JSON.parse(response.body)['access_token']
   end
 
-  test 'should reject access_token with exipred code_token' do
+  test 'should reject with exipred code token' do
     post login_oauth_authorize_url, params: {
       response_type: 'code',
       client_id: @client.uuid,
@@ -63,13 +63,13 @@ class Login::OauthControllerTest < ActionDispatch::IntegrationTest
     }
     code = CGI.parse(URI(response.headers['Location']).query)['code']
 
-    travel 601.seconds # wait for more than 10 minutes
-
-    post login_oauth_access_token_url, as: :json, params: {
-      client_id: @client.uuid,
-      client_secret: @client.secret,
-      code: code
-    }
-    assert_response :unauthorized
+    travel 601.seconds do # wait for more than 10 minutes
+      post login_oauth_access_token_url, as: :json, params: {
+        client_id: @client.uuid,
+        client_secret: @client.secret,
+        code: code
+      }
+      assert_response :unauthorized
+    end
   end
 end

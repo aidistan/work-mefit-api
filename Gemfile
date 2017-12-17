@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Use UUIDTools to generate uuids
 gem 'uuidtools'
+# Use Pundit for action authorizations
+gem 'pundit'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
