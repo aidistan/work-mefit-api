@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     post 'oauth/access_token'
   end
 
-  resources :users, only: %i[show update]
+  resources :users, only: %i[show update], shallow: true do
+    resources :measurements
+  end
 end

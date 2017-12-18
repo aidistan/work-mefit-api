@@ -1,6 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+_staff_:
+  name: _staff_
+  users: aidi, staff
+
 user:
   name: user
-  description: All active users
-  users: aidi
+  users: aidi, user

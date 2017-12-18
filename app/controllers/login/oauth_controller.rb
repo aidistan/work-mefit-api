@@ -1,5 +1,7 @@
 class Login::OauthController < ApplicationController
   skip_before_action :authenticate_access_token
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
   before_action :set_client
 
   def authorize

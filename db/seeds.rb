@@ -13,7 +13,7 @@ initial_admin = User.create(
 )
 
 # Create all hard-coded roles
-%w[_admin_ _staff_ user].each do |role|
+%w[_staff_ user].each do |role|
   initial_admin.roles << Role.create(name: role)
 end
 

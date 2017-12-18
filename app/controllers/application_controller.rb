@@ -5,6 +5,8 @@ class ApplicationController < ActionController::API
   attr_reader :current_user, :current_token
 
   before_action :authenticate_access_token
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   rescue_from(Pundit::NotAuthorizedError) { head :unauthorized }
   # rescue_from(ActiveRecord::DeleteRestrictionError) { head :precondition_required }

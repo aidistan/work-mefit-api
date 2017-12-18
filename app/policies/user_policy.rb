@@ -1,15 +1,11 @@
 class UserPolicy < ApplicationPolicy
   def show?
-    user == record
+    user.has_role?(:_staff_) ||
+      (user.has_role?(:user) && user == record)
   end
 
   def update?
-    user == record
-  end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
+    user.has_role?(:_staff_) ||
+      (user.has_role?(:user) && user == record)
   end
 end

@@ -1,9 +1,30 @@
+# Set the default power as small as possible
 class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
     @user = user
     @record = record
+  end
+
+  def index?
+    false
+  end
+
+  def show?
+    scope.where(id: record.id).exists?
+  end
+
+  def create?
+    false
+  end
+
+  def update?
+    false
+  end
+
+  def destroy?
+    false
   end
 
   def scope
@@ -19,7 +40,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope
+      []
     end
   end
 end

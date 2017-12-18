@@ -8,10 +8,26 @@ aidi:
   user: aidi
   client: web
 
-sunny:
-  uuid: sunny-access
+guest:
+  uuid: guest-access
   kind: access
   expires_in: 60
   expires_at: <%= Time.now + 60 %>
-  user: sunny
+  user: guest
+  client: web
+
+staff:
+  uuid: staff-access
+  kind: access
+  expires_in: 60
+  expires_at: <%= Time.now + 60 %>
+  user: staff
+  client: web
+
+user:
+  uuid: user-access
+  kind: access
+  expires_in: 60
+  expires_at: <%= Time.now + 60 %>
+  user: user
   client: web

@@ -8,10 +8,26 @@ aidi:
   gender: 1
   birthday: 1991-08-03
 
-sunny:
-  mobile: 17610258383
+guest:
+  mobile: 18812345678
   password_digest: <%= BCrypt::Password.create('Pa55word') %>
-  nickname: Sunny
-  weixin_id: sunny
-  gender: 0
-  birthday: 1991-10-25
+  nickname: Guest
+  weixin_id: guest
+  gender: 1
+  birthday: 2017-07-01
+
+staff:
+  mobile: 18245815539
+  password_digest: <%= BCrypt::Password.create('Pa55word') %>
+  nickname: Staff
+  weixin_id: staff
+  gender: 1
+  birthday: 2017-07-01
+
+user:
+  mobile: 18227792459
+  password_digest: <%= BCrypt::Password.create('Pa55word') %>
+  nickname: User
+  weixin_id: user
+  gender: 1
+  birthday: 2017-07-01
