@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+aidi:
+  formula: test
+  calories: 10
+  fat: 1
+  protein: 1.5
+  carbohydrate: 1.5
+  user: aidi
+  measurement: aidi

@@ -12,7 +12,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(id: record.id).exists?
+    user_scope.where(id: record.id).exists?
   end
 
   def create?
@@ -27,7 +27,12 @@ class ApplicationPolicy
     false
   end
 
-  def scope
+  def user_resource
+    user.has_role?(:_staff_) ||
+      (user.has_role?(:user) && user == record.user)
+  end
+
+  def user_scope
     Pundit.policy_scope!(user, record.class)
   end
 

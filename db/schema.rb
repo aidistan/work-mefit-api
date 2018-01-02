@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218072902) do
+ActiveRecord::Schema.define(version: 20171231102758) do
 
   create_table "clients", force: :cascade do |t|
     t.string "uuid"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20171218072902) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_measurements_on_user_id"
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.string "formula"
+    t.float "calories"
+    t.float "fat"
+    t.float "protein"
+    t.float "carbohydrate"
+    t.integer "user_id"
+    t.integer "measurement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["measurement_id"], name: "index_requirements_on_measurement_id"
+    t.index ["user_id"], name: "index_requirements_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|

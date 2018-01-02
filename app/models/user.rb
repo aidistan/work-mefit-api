@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :roles, join_table: :users_roles
   has_many :tokens
   has_many :measurements
+  has_many :requirements
 
   enum gender: { female: 0, male: 1, unknown: 2 }
   has_secure_password

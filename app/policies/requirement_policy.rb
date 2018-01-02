@@ -1,4 +1,4 @@
-class MeasurementPolicy < ApplicationPolicy
+class RequirementPolicy < ApplicationPolicy
   alias show? user_resource
   alias create? user_resource
   alias update? user_resource
