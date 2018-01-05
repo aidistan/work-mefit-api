@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231102758) do
+ActiveRecord::Schema.define(version: 20180105170015) do
+
+  create_table "acquirements", force: :cascade do |t|
+    t.float "calories"
+    t.float "fat"
+    t.float "protein"
+    t.float "carbohydrate"
+    t.integer "user_id"
+    t.integer "requirement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["requirement_id"], name: "index_acquirements_on_requirement_id"
+    t.index ["user_id"], name: "index_acquirements_on_user_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "uuid"

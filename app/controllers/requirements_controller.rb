@@ -41,7 +41,6 @@ class RequirementsController < ApplicationController
     authorize @requirement = Requirement.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def requirement_params
     params.require(:requirement).permit(:formula, :calories, :fat, :protein, :carbohydrate, :measurement_id)
   end

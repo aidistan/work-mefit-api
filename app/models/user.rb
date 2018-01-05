@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :tokens
   has_many :measurements
   has_many :requirements
+  has_many :acquirements
 
   enum gender: { female: 0, male: 1, unknown: 2 }
   has_secure_password

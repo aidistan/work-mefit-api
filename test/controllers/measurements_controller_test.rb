@@ -10,16 +10,6 @@ class MeasurementsControllerTest < ActionDispatch::IntegrationTest
     @other_token = tokens(:user).uuid
   end
 
-  def measurement_params
-    {
-      gender: @measurement.gender,
-      age: @measurement.age,
-      height: @measurement.height,
-      weight: @measurement.weight,
-      activity_level: @measurement.activity_level
-    }
-  end
-
   test 'should get index' do
     get user_measurements_url(@user, access_token: @token), as: :json
     assert_response :success
@@ -33,13 +23,13 @@ class MeasurementsControllerTest < ActionDispatch::IntegrationTest
   test 'should create measurement' do
     assert_difference('Measurement.count', 1) do
       post user_measurements_url(@user, access_token: @token),
-        params: { measurement: measurement_params }, as: :json
+        params: { measurement: @measurement }, as: :json
     end
     assert_response :created
 
     assert_no_difference('Measurement.count') do
       post user_measurements_url(@user, access_token: @other_token),
-        params: { measurement: measurement_params }, as: :json
+        params: { measurement: @measurement }, as: :json
     end
     assert_response :unauthorized
   end

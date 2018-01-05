@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[show update], shallow: true do
     resources :measurements
     resources :requirements
+    resources :acquirements
   end
 end
